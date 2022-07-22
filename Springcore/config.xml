@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+
+<!-- Question 1 -->
+    <bean class="que1.Que1"  name="bean1" factory-method="getobj" /> 
+
+ <!-- Question 2 -->    
+       
+	<bean class="que2.Que2" name="bean2" p:n1="30" p:n2="20" p:n3="30" p:n4="10" p:n5="10"/>
+
+<!-- Question 3-->
+
+     <bean id="bean3" class="que3.Que3" p:rate="7" />
+    
+    <!-- Question 4-->
+    
+      <bean class="que4.Que4Department" name="dept1" p:did="101" p:dname="Testing" />
+      
+      <bean class="que4.Que4" name="emp1" autowire="byType">
+       <property name="empid" value="101"></property>
+		<property name="ename" value="Rahul Jadhav"></property>
+		<property name="email" value="rahuljadhav@gmail.com"></property>
+		<property name="salary" value="50000"></property>
+		<property name="dept" ref="dept1"></property>
+      </bean>
+	
+	 <bean class="que4.Que4Department" name="dept2" p:did="102" p:dname="Developer" />
+	 
+     <bean class="que4.Que4" name="emp2" autowire="byType">
+       <property name="empid" value="102"></property>
+		<property name="ename" value="Bhushan Chandak"></property>
+		<property name="email" value="bhushanchandak@gmail.com"></property>
+		<property name="salary" value="40000"></property>
+		<property name="dept" ref="dept2"></property>
+      </bean>
+
+    <!-- Question 5 -->
+    
+	<bean id ="bean5" class="que5.Que5" >
+	 <property name="max">
+	 <list>
+	    <value>77</value>
+	    <value>56</value>
+	    <value>67</value>
+	    <value>89</value>
+	    <value>90</value>
+	 </list>
+	 </property>
+	</bean>
+
+
+<!-- Question 6 -->
+
+	<bean id ="bean6" class="que6.Que6" >
+	<property name="str">
+	
+     <array>
+     <value>chrty</value>
+     <value>qwerty</value>
+     <value>hywsfgh</value>
+     </array>
+
+      </property>
+		</bean>
+		
+		<!-- Question 7 -->
+		
+	<bean id="arr" class= "que7.Que7_Array2">
+		<constructor-arg>
+			<array>
+				<value>10</value>
+				<value>20</value>
+				<value>30</value>
+			</array>
+		</constructor-arg>
+	</bean>
+	<bean id="bean7" class="que7.Que7_Array1">
+		<constructor-arg>
+			<array>
+				<value>32</value>
+				<value>8</value>
+				<value>50</value>
+			</array>
+		</constructor-arg>
+		<constructor-arg ref="arr">
+		</constructor-arg>
+	</bean>	
+	
+	<!-- Question 8 -->
+	
+  <bean id ="bean8" class="que8.Que8" >
+  <property name="item">
+  <list>
+  <value>53</value>
+  <value>65</value>
+  <value>71</value>
+  <value>77</value>
+  <value>39</value>
+  <value>89</value>
+  <value>40</value>
+  <value>95</value>
+  <value>77</value>
+  </list>
+  </property>
+	</bean>	
+	
+	<!-- Question 9 -->
+	
+	<bean id="d1" class="que9.Que9" p:fromcity="Baramati" p:tocity="Pune" p:distance="100 " />
+    <bean id="d2" class="que9.Que9" p:fromcity="Nagpur" p:tocity="Mumbai" p:distance="900 " />   
+    <bean id="d3" class="que9.Que9" p:fromcity="Pune" p:tocity="Banglore" p:distance="750 " />
+    <bean id="d4" class="que9.Que9" p:fromcity="Pune" p:tocity="Ladakh" p:distance="1350 " />
+    
+    <!-- Question 10 -->
+    
+	<bean class="que10.Que10" id="bean10">
+        <property name="std">
+            <map>
+                <entry key="Ashish" value="80" />
+                <entry key="Mayur" value="90" />
+                <entry key="Adarsh" value="95" />
+                <entry key="Somesh" value="85" />
+            </map>
+        </property>
+    </bean>
+    
+      <!-- Question 11 -->
+      
+	<bean id ="result1" class="que11.Que11Result" c:maths="80f" c:hindi="90f" c:english="70f" c:science="75f" />
+	
+	<bean id ="student1" class="que11.Que11">
+	<constructor-arg value="Ashish Satav"></constructor-arg>
+	<constructor-arg value="01"></constructor-arg>
+	<constructor-arg value="20/05/1997"></constructor-arg>
+	<constructor-arg value="FE"></constructor-arg>
+	<constructor-arg value="A"></constructor-arg>
+	<constructor-arg>
+	<ref bean="result1"/>
+	</constructor-arg>
+		</bean>
+	
+	<bean id ="result2" class="que11.Que11Result" c:maths="80f" c:hindi="79f" c:english="85f" c:science="83f" />
+	
+	<bean id ="student2" class="que11.Que11">
+	<constructor-arg value="Rahul Jadhav"></constructor-arg>
+	<constructor-arg value="02"></constructor-arg>
+	<constructor-arg value="20/05/1997"></constructor-arg>
+	<constructor-arg value="FE"></constructor-arg>
+	<constructor-arg value="A"></constructor-arg>
+	<constructor-arg>
+	<ref bean="result2"/>
+	</constructor-arg>
+		</bean>
+		
+<bean id ="result3" class="que11.Que11Result" c:maths="80f" c:hindi="72f" c:english="65f" c:science="93f" />
+	
+		<bean id ="student3" class="que11.Que11">
+	<constructor-arg value=" Prashant Taware"></constructor-arg>
+	<constructor-arg value="03"></constructor-arg>
+	<constructor-arg value="07/07/1997"></constructor-arg>
+	<constructor-arg value="FE"></constructor-arg>
+	<constructor-arg value="A"></constructor-arg>
+	<constructor-arg>
+	<ref bean="result3"/>
+	</constructor-arg>
+		</bean>	
+		
+		 <!-- Question 12 -->
+		 
+    <bean id="bean12emp1" class="que12.Que12" c:empid="101" c:empname="Rahul Jadhav" c:department="HR" c:salary="55000f" />	
+    <bean id="bean12emp2" class="que12.Que12" c:empid="102" c:empname="Ashish Satav" c:department="Developement" c:salary="50000f" />
+    <bean id="bean12emp3" class="que12.Que12" c:empid="103" c:empname="Bhushan Chandak" c:department="Developement" c:salary="30000f" />
+    <bean id="bean12emp4" class="que12.Que12" c:empid="104" c:empname="Pooja Nikam" c:department="Developement" c:salary="40000f" />
+    <bean id="bean12emp5" class="que12.Que12" c:empid="105" c:empname="Jay Bhosale" c:department="HR" c:salary="40000f" />
+   
+   
+   <!-- Question 13 -->
+  
+  <bean id="movie1"
+        class="que13.Que13">
+        <property name="moviename" value="Rocketry"></property>
+        <property name="showtime" value="3-6"></property>  
+        <property name="priceofticket" value="250"></property>
+        <property name="business" value="1500 crore"></property>  
+    </bean>
+      <bean id="movie2"
+        class="que13.Que13">
+        <property name="moviename" value="Liger"></property>
+        <property name="showtime" value="9-12"></property>  
+        <property name="priceofticket" value="550"></property>
+        <property name="business" value="2500 crore"></property>  
+    </bean>
+    
+    <!-- Question 14 -->
+    
+	<bean  id="rect" class="que14.Rectangle">
+	  <constructor-arg value="6" />
+	  <constructor-arg value="9" />
+	
+	</bean>
+	
+	<bean  id="cir" class="que14.Circle">
+	  <constructor-arg value="8" />
+
+	</bean>
+	
+	<bean  id="square" class="que14.Square">
+	  <constructor-arg value="9" />
+	</bean>
+	
+	<!-- Question 15 -->
+	
+	<bean id="bean15"
+        class="que15.Customer">
+        <property name="id" value="1"></property>
+        <property name="custname" value="Rahul Jadhav"></property>  
+        <property name="item" ref="IteamID"/>
+    </bean>
+	 <bean id="IteamID"
+        class="que15.Item">
+        <property name="id" value="2"></property>
+        <property name="iname" value="iphone 11"></property>
+        <property name="price" value="50000"></property>
+        <property name="cat" ref="CatID"/>
+    </bean>
+	<bean id="CatID"
+        class="que15.Category">
+        
+        <property name="categoryname" value="Mobile"></property>  
+    </bean>
+	
+    </beans>
